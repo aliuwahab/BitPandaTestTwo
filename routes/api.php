@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TransactionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/transactions', [TransactionController::class, 'index'])->name('api.transactions');
+
+
+//TODO:: This would have been used to get the authenticated user. But Authentication is not implemented
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
